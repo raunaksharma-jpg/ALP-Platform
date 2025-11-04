@@ -1,0 +1,95 @@
+import {
+  LocationOn as LocationOnIcon,
+  Business as BusinessIcon,
+  Calculate as CalculateIcon,
+  Description as DescriptionIcon,
+  Construction as ConstructionIcon,
+  ShoppingCart as ShoppingCartIcon,
+  Settings as SettingsIcon,
+  Handshake as HandshakeIcon,
+  Build as BuildIcon,
+  BarChart as BarChartIcon,
+  Storage as StorageIcon,
+} from "@mui/icons-material";
+
+export const platformModules = [
+  {
+    id: 1,
+    icon: LocationOnIcon,
+    title: "Network Planning",
+    description: "AI-driven network planning with GIS",
+    status: "live",
+  },
+  {
+    id: 2,
+    icon: BusinessIcon,
+    title: "Real Estate Pipeline",
+    description: "Mobile-first lead management",
+    status: "live",
+  },
+  {
+    id: 3,
+    icon: CalculateIcon,
+    title: "Feasibility Engine",
+    description: "P&L calculator with APEX approval",
+    status: "live",
+  },
+  {
+    id: 4,
+    icon: DescriptionIcon,
+    title: "Lease & Contracts",
+    description: "MoU to Agreement lifecycle",
+    status: "live",
+  },
+  {
+    id: 5,
+    icon: ConstructionIcon,
+    title: "Design and Construction Management",
+    description: "BIM-based control tower",
+    status: "live",
+  },
+  {
+    id: 6,
+    icon: ShoppingCartIcon,
+    title: "Procurement",
+    description: "Vendor management and sourcing",
+    status: "live",
+  },
+  {
+    id: 7,
+    icon: SettingsIcon,
+    title: "Asset Management",
+    description: "Equipment and asset tracking",
+    status: "live",
+  },
+  {
+    id: 8,
+    icon: HandshakeIcon,
+    title: "Handover & Launch",
+    description: "RFC-HOTO automation",
+    status: "live",
+  },
+  {
+    id: 9,
+    icon: BuildIcon,
+    title: "Facilities Management",
+    description: "Operations and maintenance oversight",
+    status: "live",
+  },
+  {
+    id: 10,
+    icon: BarChartIcon,
+    title: "Post Opening Performance Monitoring",
+    description: "12-month post-opening cockpit",
+    status: "live",
+  },
+  {
+    id: 11,
+    icon: StorageIcon,
+    title: "Data Lake & Copilot",
+    description: "Unified data backbone",
+    status: "live",
+  },
+];
+
+
