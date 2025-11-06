@@ -19,17 +19,23 @@ import {
 } from "@mui/icons-material";
 import { dashboardConfig } from "./configs";
 import { FilterSection, StatsCards } from "../../components";
+import ExpansionTab from "./ExpansionTab";
 
 const Dashboard = () => {
   const [filterValues, setFilterValues] = React.useState({
     "Time Range": "YTD",
   });
+  const [activeTab, setActiveTab] = React.useState("expansion");
 
   const handleFilterChange = (filterLabel, value) => {
     setFilterValues((prev) => ({
       ...prev,
       [filterLabel]: value,
     }));
+  };
+
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
   };
 
   const getActionButtonIcon = (iconName) => {
@@ -221,6 +227,71 @@ const Dashboard = () => {
           </Card>
         </Grid>
       </Grid>
+
+      {/* Tabs Section */}
+      <Box sx={{ mt: 4 }}>
+        <Box
+          sx={{
+            display: "flex",
+            borderBottom: "1px solid #e0e0e0",
+            // justifyContent: "space-between",
+            gap: 0,
+          }}
+        >
+          {dashboardConfig.tabs.map((tab, index) => {
+            const IconComponent = tab.icon;
+            const isActive = activeTab === tab.value;
+
+            return (
+              <Button
+                key={tab.value}
+                onClick={(e) => handleTabChange(e, tab.value)}
+                startIcon={<IconComponent sx={{ fontSize: 20 }} />}
+                sx={{
+                  textTransform: "none",
+                  minHeight: 48,
+                  px: 3,
+                  py: 1.5,
+                  fontSize: "0.875rem",
+                  fontWeight: isActive ? 600 : 400,
+                  color: isActive ? "#1976d2" : "#757575",
+                  backgroundColor: isActive ? "#e3f2fd" : "transparent",
+                  borderRadius: 0,
+                  border: "1px solid #e0e0e0",
+                  borderBottom: "none",
+                  borderRight: index < dashboardConfig.tabs.length - 1 ? "1px solid #e0e0e0" : "1px solid #e0e0e0",
+                  mr: 0,
+                  position: "relative",
+                  "&:hover": {
+                    backgroundColor: isActive ? "#e3f2fd" : "#f5f5f5",
+                  },
+                  "&:first-of-type": {
+                    borderTopLeftRadius: "8px",
+                  },
+                  "&:last-of-type": {
+                    borderTopRightRadius: "8px",
+                  },
+                }}
+              >
+                {tab.label}
+              </Button>
+            );
+          })}
+        </Box>
+        <Box
+          sx={{
+            border: "1px solid #e0e0e0",
+            borderTop: "none",
+            borderBottomLeftRadius: "8px",
+            borderBottomRightRadius: "8px",
+            boxShadow: "0 1px 2px rgba(0,0,0,0.08)",
+            p: 3,
+            backgroundColor: "#ffffff",
+          }}
+        >
+          {activeTab === "expansion" && <ExpansionTab />}
+        </Box>
+      </Box>
     </Container>
   );
 };

@@ -15,6 +15,9 @@ const StatsCards = ({
   showIcon = true,
   showSubtitle = true,
   noWrapper = false,
+  gridColumns,
+  gridSize = { xs: 12, sm: 6, md: 3 },
+  spacing = 2,
 }) => {
   const content = (
     <>
@@ -49,10 +52,10 @@ const StatsCards = ({
           )}
         </Box>
       )}
-      <Grid container spacing={2}>
+      <Grid container spacing={spacing} columns={gridColumns}>
         {cards.map((card, index) => {
           return (
-            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+            <Grid size={card.size || gridSize} key={index}>
               <Card
                 sx={{
                   borderRadius: 2,
