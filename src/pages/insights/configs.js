@@ -83,6 +83,50 @@ export const moduleUsageConfig = {
   header: {
     title: "Module Usage Analytics",
   },
+  tableColumns: [
+    {
+      field: "name",
+      label: "Module",
+      type: "text",
+    },
+    {
+      field: "activeUsers",
+      label: "Active Users",
+      type: "number",
+    },
+    {
+      field: "sessions",
+      label: "Sessions",
+      type: "number",
+    },
+    {
+      field: "efficiency",
+      label: "Efficiency",
+      type: "efficiency",
+    },
+    {
+      field: "actions",
+      label: "Actions",
+      type: "actions",
+    },
+  ],
+  actionButtons: [
+    {
+      label: "View",
+      action: "view",
+      icon: "Visibility",
+    },
+    {
+      label: "Edit",
+      action: "edit",
+      icon: "Edit",
+    },
+    {
+      label: "Delete",
+      action: "delete",
+      icon: "Delete",
+    },
+  ],
   modules: [
     {
       name: "Location Intelligence",

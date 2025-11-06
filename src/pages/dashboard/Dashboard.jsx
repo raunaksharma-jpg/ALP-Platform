@@ -146,7 +146,8 @@ const Dashboard = () => {
           <Card
             sx={{
               borderRadius: 2,
-              boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+              border: "1px solid #e0e0e0",
+              boxShadow: "0 1px 2px rgba(0,0,0,0.08)",
               height: "100%",
             }}
           >
