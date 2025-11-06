@@ -14,8 +14,25 @@ import { platformModules } from "./configs";
 
 const PlatformModules = () => {
   return (
-    <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
-      <Box sx={{ mb: 4, display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+    <Container
+      maxWidth={false}
+      sx={{
+        width: "95%",
+        mt: 4,
+        mb: 4,
+        mx: "auto", // centers the container horizontally
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          justifyContent: "space-between",
+          alignItems: { xs: "flex-start", md: "flex-start" },
+          mb: 4,
+          gap: { xs: 2, sm: 3 },
+        }}
+      >
         <Box sx={{ flex: 1 }}>
           <Typography
             variant="h4"
