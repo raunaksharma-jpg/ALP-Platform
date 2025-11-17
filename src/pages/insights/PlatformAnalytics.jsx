@@ -7,21 +7,9 @@ import {
   CardContent,
   Grid,
 } from "@mui/material";
-import {
-  LineChart,
-  Line,
-  PieChart,
-  Pie,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
 import { Analytics as AnalyticsIcon } from "@mui/icons-material";
 import { analyticsConfig } from "./configs";
-import { StatsCards } from "../../components";
+import { StatsCards, Chart } from "../../components";
 
 const PlatformAnalytics = () => {
   return (
@@ -141,43 +129,35 @@ const PlatformAnalytics = () => {
               >
                 {analyticsConfig.weeklyActivity.title}
               </Typography>
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={analyticsConfig.weeklyActivity.data}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis
-                    dataKey="day"
-                    stroke="#757575"
-                    style={{ fontSize: "0.75rem" }}
-                  />
-                  <YAxis
-                    stroke="#757575"
-                    style={{ fontSize: "0.75rem" }}
-                    domain={[0, 800]}
-                    ticks={[0, 200, 400, 600, 800]}
-                  />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "#ffffff",
-                      border: "1px solid #e0e0e0",
-                      borderRadius: 4,
-                    }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="value1"
-                    stroke="#64b5f6"
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="value2"
-                    stroke="#1976d2"
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
+              <Chart
+                type="line"
+                data={analyticsConfig.weeklyActivity.data}
+                dataKeys={[
+                  {
+                    dataKey: "value1",
+                    name: "Value 1",
+                    color: "#64b5f6",
+                    strokeWidth: 2,
+                    dot: false,
+                  },
+                  {
+                    dataKey: "value2",
+                    name: "Value 2",
+                    color: "#1976d2",
+                    strokeWidth: 2,
+                    dot: false,
+                  },
+                ]}
+                xAxisKey="day"
+                height={300}
+                yAxisConfig={{
+                  domain: [0, 800],
+                  ticks: [0, 200, 400, 600, 800],
+                }}
+                xAxisConfig={{
+                  style: { fontSize: "0.75rem" },
+                }}
+              />
             </CardContent>
           </Card>
         </Grid>
@@ -203,34 +183,19 @@ const PlatformAnalytics = () => {
               >
                 {analyticsConfig.userRoleDistribution.title}
               </Typography>
-              <ResponsiveContainer width="100%" height={300}>
-                <PieChart>
-                  <Pie
-                    data={analyticsConfig.userRoleDistribution.data}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={true}
-                    label={({ name, value }) => `${name}: ${value}%`}
-                    outerRadius={100}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {analyticsConfig.userRoleDistribution.data.map(
-                      (entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      )
-                    )}
-                  </Pie>
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "#ffffff",
-                      border: "1px solid #e0e0e0",
-                      borderRadius: 4,
-                    }}
-                    formatter={(value) => `${value}%`}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
+              <Chart
+                type="pie"
+                data={analyticsConfig.userRoleDistribution.data}
+                dataKeys={[
+                  {
+                    dataKey: "value",
+                    outerRadius: 100,
+                  },
+                ]}
+                height={300}
+                showLegend={false}
+                showGrid={false}
+              />
             </CardContent>
           </Card>
         </Grid>

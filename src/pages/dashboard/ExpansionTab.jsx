@@ -6,20 +6,9 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  LineChart,
-  Line,
-} from "recharts";
 import { dashboardConfig } from "./configs";
 import StatsCards from "../../components/StatsCards";
+import { Chart } from "../../components";
 
 const ExpansionTab = () => {
   const { expansionCharts } = dashboardConfig;
@@ -74,25 +63,33 @@ const ExpansionTab = () => {
                 </Typography>
               </Box>
               <Box sx={{ width: "100%", height: 280 }}>
-                <ResponsiveContainer>
-                  <BarChart data={expansionCharts.formatPerformance.data} barGap={6}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                    <XAxis dataKey="format" stroke="#757575" tick={{ fontSize: 12 }} />
-                    <YAxis stroke="#757575" tick={{ fontSize: 12 }} />
-                    <Tooltip
-                      cursor={{ fill: "rgba(13, 71, 161, 0.08)" }}
-                      contentStyle={{
-                        borderRadius: 8,
-                        border: "1px solid #e0e0e0",
-                        boxShadow: "0 4px 12px rgba(15, 23, 42, 0.12)",
-                      }}
-                    />
-                    <Legend verticalAlign="top" align="right" iconType="circle" wrapperStyle={{ fontSize: 12, paddingBottom: 12 }} />
-                    <Bar dataKey="plan" name="Plan" fill="#0d47a1" radius={[6, 6, 0, 0]} />
-                    <Bar dataKey="actual" name="Actual" fill="#1976d2" radius={[6, 6, 0, 0]} />
-                    <Bar dataKey="pipeline" name="Pipeline" fill="#63a4ff" radius={[6, 6, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+                <Chart
+                  type="bar"
+                  data={expansionCharts.formatPerformance.data}
+                  dataKeys={[
+                    {
+                      dataKey: "plan",
+                      name: "Plan",
+                      color: "#0d47a1",
+                      radius: [6, 6, 0, 0],
+                    },
+                    {
+                      dataKey: "actual",
+                      name: "Actual",
+                      color: "#1976d2",
+                      radius: [6, 6, 0, 0],
+                    },
+                    {
+                      dataKey: "pipeline",
+                      name: "Pipeline",
+                      color: "#63a4ff",
+                      radius: [6, 6, 0, 0],
+                    },
+                  ]}
+                  xAxisKey="format"
+                  height={280}
+                  chartConfig={{ barGap: 6 }}
+                />
               </Box>
             </CardContent>
           </Card>
@@ -132,39 +129,30 @@ const ExpansionTab = () => {
                 </Typography>
               </Box>
               <Box sx={{ width: "100%", height: 280 }}>
-                <ResponsiveContainer>
-                  <LineChart data={expansionCharts.monthlyOpeningProgress.data}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                    <XAxis dataKey="month" stroke="#757575" tick={{ fontSize: 12 }} />
-                    <YAxis stroke="#757575" tick={{ fontSize: 12 }} />
-                    <Tooltip
-                      contentStyle={{
-                        borderRadius: 8,
-                        border: "1px solid #e0e0e0",
-                        boxShadow: "0 4px 12px rgba(15, 23, 42, 0.12)",
-                      }}
-                    />
-                    <Legend verticalAlign="top" align="right" iconType="circle" wrapperStyle={{ fontSize: 12, paddingBottom: 12 }} />
-                    <Line
-                      type="monotone"
-                      dataKey="target"
-                      name="Target"
-                      stroke="#ef5350"
-                      strokeDasharray="6 4"
-                      strokeWidth={2}
-                      dot={{ r: 3 }}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="actual"
-                      name="Actual"
-                      stroke="#1e88e5"
-                      strokeWidth={3}
-                      dot={{ r: 4, fill: "#1e88e5" }}
-                      activeDot={{ r: 6 }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
+                <Chart
+                  type="line"
+                  data={expansionCharts.monthlyOpeningProgress.data}
+                  dataKeys={[
+                    {
+                      dataKey: "target",
+                      name: "Target",
+                      color: "#ef5350",
+                      strokeDasharray: "6 4",
+                      strokeWidth: 2,
+                      dot: { r: 3 },
+                    },
+                    {
+                      dataKey: "actual",
+                      name: "Actual",
+                      color: "#1e88e5",
+                      strokeWidth: 3,
+                      dot: { r: 4, fill: "#1e88e5" },
+                      activeDot: { r: 6 },
+                    },
+                  ]}
+                  xAxisKey="month"
+                  height={280}
+                />
               </Box>
             </CardContent>
           </Card>
