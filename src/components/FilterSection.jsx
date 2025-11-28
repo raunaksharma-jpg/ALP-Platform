@@ -10,7 +10,6 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel,
 } from "@mui/material";
 import {
   FilterList as FilterIcon,
@@ -54,58 +53,69 @@ const FilterSection = ({
         <Grid container spacing={2}>
           {filters.map((filter, index) => (
             <Grid size={{ xs: 12, sm: 6, md: 2.4 }} key={index}>
-              {filter.type === "search" ? (
-                <TextField
-                  fullWidth
-                  placeholder={filter.placeholder}
-                  variant="outlined"
-                  size="small"
-                  value={filterValues[filter.label] || ""}
-                  onChange={(e) => handleChange(filter.label, e.target.value)}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon sx={{ color: "#757575", fontSize: 20 }} />
-                      </InputAdornment>
-                    ),
-                  }}
+              <Box>
+                <Typography
+                  variant="body2"
                   sx={{
-                    borderRadius: 2,
-                    backgroundColor: "#f5f5f5",
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#e0e0e0",
-                    },
-                    "& .MuiInputBase-input": {
-                      fontSize: "0.875rem",
-                    },
+                    fontSize: "0.85rem",
+                    color: "#000000",
+                    mb: 1,
+                    fontWeight: 500,
                   }}
-                />
-              ) : (
-                <FormControl fullWidth variant="outlined" size="small">
-                  <InputLabel sx={{ fontSize: "0.75rem", color: "#757575" }}>
-                    {filter.label}
-                  </InputLabel>
-                  <Select
+                >
+                  {filter.label}
+                </Typography>
+                {filter.type === "search" ? (
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    size="small"
                     value={filterValues[filter.label] || ""}
-                    label={filter.label}
                     onChange={(e) => handleChange(filter.label, e.target.value)}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon sx={{ color: "#757575", fontSize: 20 }} />
+                        </InputAdornment>
+                      ),
+                    }}
                     sx={{
                       borderRadius: 2,
                       backgroundColor: "#f5f5f5",
                       "& .MuiOutlinedInput-notchedOutline": {
                         borderColor: "#e0e0e0",
                       },
+                      "& .MuiInputBase-input": {
+                        fontSize: "0.875rem",
+                      },
                     }}
-                  >
-                    <MenuItem value="">{filter.placeholder}</MenuItem>
-                    {filter.options?.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
+                  />
+                ) : (
+                  <FormControl fullWidth variant="outlined" size="small">
+                    <Select
+                      value={filterValues[filter.label] || ""}
+                      onChange={(e) => handleChange(filter.label, e.target.value)}
+                      displayEmpty
+                      sx={{
+                        borderRadius: 2,
+                        backgroundColor: "#f5f5f5",
+                        "& .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#e0e0e0",
+                        },
+                      }}
+                    >
+                      <MenuItem value="" disabled>
+                        {/* <em>Select</em> */}
                       </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              )}
+                      {filter.options?.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
+              </Box>
             </Grid>
           ))}
         </Grid>

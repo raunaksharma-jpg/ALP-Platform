@@ -169,7 +169,7 @@ const RBACAdmin = () => {
             variant="body1"
             sx={{
               fontWeight: "normal",
-              color: "#666666",
+              color: "#000000",
             }}
           >
             Manage users, roles, and permissions for the platform

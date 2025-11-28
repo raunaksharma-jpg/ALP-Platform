@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Typography,
   Container,
@@ -13,6 +14,8 @@ import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
 import { platformModules } from "./configs";
 
 const PlatformModules = () => {
+  const navigate = useNavigate();
+
   return (
     <Container
       maxWidth={false}
@@ -35,12 +38,14 @@ const PlatformModules = () => {
       >
         <Box sx={{ flex: 1 }}>
           <Typography
-            variant="h4"
+            variant="h5"
             sx={{
               fontWeight: "bold",
               mb: 1,
               color: "#000000",
+              fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" },
             }}
+            
           >
             ALP - Asset Lifecycle Platform
           </Typography>
@@ -72,6 +77,7 @@ const PlatformModules = () => {
           </Button>
           <Button
             variant="outlined"
+            onClick={() => navigate("/dashboard")}
             sx={{
               textTransform: "none",
               fontWeight: 500,

@@ -31,7 +31,7 @@ const PlatformAnalytics = () => {
             sx={{
               fontWeight: "bold",
               mb: 1,
-              color: "#424242",
+              color: "#000000",
               fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2rem" },
             }}
           >
@@ -40,7 +40,7 @@ const PlatformAnalytics = () => {
           <Typography
             variant="body1"
             sx={{
-              color: "#757575",
+              color: "#000000",
               fontSize: { xs: "0.875rem", sm: "0.875rem" },
             }}
           >
