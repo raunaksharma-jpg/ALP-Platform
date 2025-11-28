@@ -6,6 +6,7 @@ import {
   Dashboard,
   Analytics,
   AIAgent,
+  RBACAdmin,
 } from "./pages";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/ai-agent" element={<AIAgent />} />
+        <Route path="/rbac-admin" element={<RBACAdmin />} />
       </Routes>
     </BrowserRouter>
   );

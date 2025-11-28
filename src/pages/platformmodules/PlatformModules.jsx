@@ -61,10 +61,10 @@ const PlatformModules = () => {
             sx={{
               textTransform: "none",
               fontWeight: 500,
-              backgroundColor: "#1976d2",
+              backgroundColor: "#00338d",
               color: "#ffffff",
               "&:hover": {
-                backgroundColor: "#1565c0",
+                backgroundColor: "#00286e",
               },
             }}
           >
@@ -75,11 +75,11 @@ const PlatformModules = () => {
             sx={{
               textTransform: "none",
               fontWeight: 500,
-              borderColor: "#1976d2",
-              color: "#1976d2",
+              borderColor: "#00338d",
+              color: "#00338d",
               "&:hover": {
-                borderColor: "#1565c0",
-                backgroundColor: "rgba(21, 101, 192, 0.04)",
+                borderColor: "#00286e",
+                backgroundColor: "rgba(0, 51, 141, 0.04)",
               },
             }}
           >
@@ -178,14 +178,14 @@ const PlatformModules = () => {
                     variant="contained"
                     endIcon={<ArrowForwardIcon />}
                     sx={{
-                      backgroundColor: "#1976d2",
+                      backgroundColor: "#00338d",
                       color: "#ffffff",
                       textTransform: "none",
                       fontWeight: 500,
                       borderRadius: 1,
                       py: 1,
                       "&:hover": {
-                        backgroundColor: "#1565c0",
+                        backgroundColor: "#00286e",
                       },
                     }}
                   >

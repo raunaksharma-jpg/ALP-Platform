@@ -26,6 +26,7 @@ import {
   Launch as LaunchIcon,
   Menu as MenuIcon,
   Close as CloseIcon,
+  Security as SecurityIcon,
 } from "@mui/icons-material";
 
 const Header = () => {
@@ -41,6 +42,7 @@ const Header = () => {
     { icon: DashboardIcon, label: "Dashboard", path: "/dashboard" },
     { icon: AnalyticsIcon, label: "Analytics", path: "/analytics" },
     { icon: SmartToyIcon, label: "AI Agent", path: "/ai-agent" },
+    { icon: SecurityIcon, label: "RBAC Admin", path: "/rbac-admin" },
   ];
 
   const handleDrawerToggle = () => {
@@ -77,16 +79,16 @@ const Header = () => {
                 selected={isActive}
                 onClick={handleDrawerToggle}
                 sx={{
-                  color: isActive ? "#1976d2" : "#000000",
+                  color: isActive ? "#00338d" : "#000000",
                   "&.Mui-selected": {
-                    backgroundColor: "rgba(25, 118, 210, 0.08)",
-                    color: "#1976d2",
+                    backgroundColor: "rgba(0, 51, 141, 0.08)",
+                    color: "#00338d",
                   },
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: isActive ? "#1976d2" : "#000000",
+                    color: isActive ? "#00338d" : "#000000",
                     minWidth: 40,
                   }}
                 >
@@ -135,7 +137,7 @@ const Header = () => {
               sx={{
                 width: { xs: 32, sm: 40 },
                 height: { xs: 32, sm: 40 },
-                backgroundColor: "#1976d2",
+                backgroundColor: "#00338d",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -210,9 +212,9 @@ const Header = () => {
                         alignItems: "center",
                         gap: 0.5,
                         cursor: "pointer",
-                        color: isActive ? "#1976d2" : "#000000",
+                        color: isActive ? "#00338d" : "#000000",
                         "&:hover": {
-                          color: "#1976d2",
+                          color: "#00338d",
                         },
                         px: { sm: 1, md: 1.5 },
                         py: 0.5,

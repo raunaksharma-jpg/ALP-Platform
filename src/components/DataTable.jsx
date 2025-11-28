@@ -56,9 +56,9 @@ const DataTable = ({
   const getActionColor = (action) => {
     switch (action) {
       case "view":
-        return "#1976d2";
+        return "#00338d";
       case "edit":
-        return "#f57c00";
+        return "#00338d";
       case "delete":
         return "#d32f2f";
       default:

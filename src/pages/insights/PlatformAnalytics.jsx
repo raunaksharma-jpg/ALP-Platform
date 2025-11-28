@@ -64,7 +64,7 @@ const PlatformAnalytics = () => {
                 textTransform: "none",
                 borderColor: "#e0e0e0",
                 color: button.isActive ? "#ffffff" : "#424242",
-                backgroundColor: button.isActive ? "#1976d2" : "transparent",
+                backgroundColor: button.isActive ? "#00338d" : "transparent",
                 borderRadius: 2,
                 px: { xs: 1.5, sm: 2 },
                 py: { xs: 0.75, sm: 1 },
